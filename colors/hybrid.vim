@@ -85,12 +85,12 @@ let g:colors_name = "hybrid"
 let s:palette = {'gui' : {} , 'cterm' : {}}
 
 if exists("g:hybrid_reduced_contrast") && g:hybrid_reduced_contrast == 1
-  let s:gui_background = "#232c31"
+  let s:gui_background = "#1e1e1e"
   let s:gui_selection  = "#425059"
   let s:gui_line       = "#2d3c46"
   let s:gui_comment    = "#6c7a80"
 else
-  let s:gui_background = "#1d1f21"
+  let s:gui_background = "#1e1e1e"
   let s:gui_selection  = "#373b41"
   let s:gui_line       = "#282a2e"
   let s:gui_comment    = "#9098a0"
@@ -300,7 +300,7 @@ exe "hi! Folded"        .s:fg_comment     .s:bg_darkcolumn  .s:fmt_none
 exe "hi! FoldColumn"    .s:fg_none        .s:bg_darkcolumn  .s:fmt_none
 exe "hi! SignColumn"    .s:fg_none        .s:bg_darkcolumn  .s:fmt_none
 "   Incsearch"
-exe "hi! LineNr"        .s:fg_selection   .s:bg_none        .s:fmt_none
+exe "hi! LineNr"        .s:fg_comment   .s:bg_none        .s:fmt_none
 exe "hi! CursorLineNr"  .s:fg_yellow      .s:bg_none        .s:fmt_none
 exe "hi! MatchParen"    .s:fg_none        .s:bg_changebg    .s:fmt_none
 exe "hi! ModeMsg"       .s:fg_green       .s:bg_none        .s:fmt_none
@@ -331,11 +331,11 @@ hi LongLineWarning  guifg=NONE        guibg=#371F1C     gui=underline ctermfg=NO
 "   WildMenu"
 
 " Use defined custom background colour for terminal Vim.
-if !has('gui_running') && exists("g:hybrid_custom_term_colors") && g:hybrid_custom_term_colors == 1
-  let s:bg_normal = s:bg_none
-else
-  let s:bg_normal = s:bg_background
-endif
+"if !has('gui_running') && exists("g:hybrid_custom_term_colors") && g:hybrid_custom_term_colors == 1
+"  let s:bg_normal = s:bg_none
+"else
+let s:bg_normal = "#1e1e1e" " s:bg_background
+"endif
 exe "hi! Normal"        .s:fg_foreground  .s:bg_normal      .s:fmt_none
 
 "}}}
@@ -350,7 +350,7 @@ exe "hi! String"          .s:fg_green       .s:bg_none        .s:fmt_none
 "   Boolean"
 "   Float"
 
-exe "hi! Identifier"      .s:fg_purple      .s:bg_none        .s:fmt_none
+exe "hi! Identifier"      .s:fg_none        .s:bg_none        .s:fmt_none
 exe "hi! Function"        .s:fg_yellow      .s:bg_none        .s:fmt_none
 
 exe "hi! Statement"       .s:fg_blue        .s:bg_none        .s:fmt_none
